@@ -15,8 +15,8 @@ keywords: dion kuteesa, aerospace engineer, spacecraft engineering, electric pro
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🚀 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
-url: https://dkut84.github.io # GitHub Pages hostname
-baseurl: /portfolio # Repository name subpath. (If you rename this repo to dkut84.github.io, change this to "")
+url: https://dkutz.github.io # your site domain
+baseurl: "" # root domain for dkutz.github.io
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
