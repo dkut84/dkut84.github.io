@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://dkut84.github.io/portfolio/sitemap.xml
+Sitemap: https://dkutz.github.io/sitemap.xml
