@@ -1,0 +1,257 @@
+{
+  "basics": {
+    "name": "Azhari Abbas",
+    "label": "Aerospace Engineer",
+    "image": "",
+    "email": "azhari.abbas2@gmail.com",
+    "phone": "+1 (954) 882-7461",
+    "url": "",
+    "summary": "Experienced in test and evaluation engineering, edge AI for autonomous systems, and spacecraft environmental testing with an active U.S. DoD Secret clearance.",
+    "location": {
+      "address": "",
+      "postalCode": "",
+      "city": "Daytona Beach",
+      "countryCode": "US",
+      "region": "Florida"
+    },
+    "profiles": []
+  },
+    "education": [
+    {
+      "institution": "Embry-Riddle Aeronautical University",
+      "area": "Aerospace Engineering (Astronautics and Spacecraft Design)",
+      "studyType": "Bachelor of Science",
+      "startDate": "2022-08-01",
+      "endDate": "2026-05-01",
+      "courses": [
+        "Minors: Computer Science and Business Administration",
+        "Kappa Alpha Psi Fraternity Inc.",
+        "National Society of Black Engineers (NSBE)"
+      ]
+    }
+  ],
+    "skills": [
+    {
+      "name": "Programming and Flight Software",
+      "keywords": ["Python", "MATLAB", "C", "C++", "CUDA", "Arduino", "ROS", "PX4", "YOLO"]
+    },
+    {
+      "name": "Simulation and Analysis",
+      "keywords": ["Simulink", "NASTRAN", "Ansys Fluent", "STK", "GMAT", "MES", "CPLM", "NASA GEVS"]
+    },
+    {
+      "name": "CAD",
+      "keywords": ["CATIA", "SolidWorks", "Inventor", "Siemens NX"]
+    }
+  ],
+  "certificates": [
+    { "name": "SOLIDWORKS Professional (CSWP)", "date": "2019-01-01", "issuer": "Dassault Systèmes" },
+    { "name": "Autodesk Professional Certification – Design and Drafting", "date": "2019-01-01", "issuer": "Autodesk" },
+    { "name": "Autodesk Inventor Professional Certification", "date": "2022-01-01", "issuer": "Autodesk" },
+    { "name": "Arduino Certification Program", "date": "2023-01-01", "issuer": "Arduino" },
+    { "name": "Northrop Grumman ASTAR", "date": "2025-01-01", "issuer": "Northrop Grumman" }
+  ],
+  "work": [
+    {
+      "name": "Mitsubishi Power Americas Inc.",
+      "position": "Product Line Management Associate (Part-time)",
+      "url": "",
+      "startDate": "2024-04-01",
+      "endDate": "Present",
+      "summary": "Analyzed operational data from high-capacity gas turbines to support product life cycle management and strategy development.",
+      "highlights": [
+        "Coordinated communication between engineering, sales, and program managers across prioritization and production cycles."
+      ]
+    },
+    {
+      "name": "Northrop Grumman Corporation",
+      "position": "Test and Evaluation Engineering Intern (Full-time)",
+      "url": "",
+      "startDate": "2025-06-01",
+      "endDate": "2025-08-01",
+      "summary": "Active U.S. Department of Defense Secret/SAP clearance holder conducting systems testing in a high-stakes environment.",
+      "highlights": [
+        "Conducted testing of hydraulic, environmental control, electrical, and fuel systems.",
+        "Authored Acceptance Test Procedures to ensure system safety and compliance.",
+        "Enhanced augmented reality tools to guide technicians during system testing."
+      ]
+    },
+    {
+      "name": "Docking Robotics LLC",
+      "position": "Mechanical Engineering Intern (Part-time)",
+      "url": "",
+      "startDate": "2023-06-01",
+      "endDate": "2023-11-01",
+      "summary": "Focused on hardware integration for autonomous ground vehicles.",
+      "highlights": [
+        "Designed and integrated encoder mounting hardware.",
+        "Collaborated with vendors to resolve instrumentation and measurement system challenges."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Navigating Enhanced Exploration Assistance (NEXA)",
+      "summary": "Developed an edge AI platform for autonomous drone security designed for challenging data environments including noise, occlusions, and weather changes.",
+      "highlights": [
+        "Deployed an end-to-end edge stack on NVIDIA Jetson platforms with real-time YOLO object detection reaching 56 FPS.",
+        "Used domain randomization and online hard example mining to handle distribution shift and enable closed-loop autonomy without the cloud.",
+        "Created a deployment-ready architecture for privacy-preserving, on-device perception and secure alerting."
+      ],
+      "startDate": "2023-01-01",
+      "endDate": "Present"
+    },
+    {
+      "name": "OrbitFlex CubeSat Team",
+      "summary": "Served as Environmental and Test Engineer for a 3U CubeSat mission aimed at conducting optical Space Situational Awareness (SSA) of objects in the geostationary belt.",
+      "highlights": [
+        "Developed comprehensive end-to-end testing plans incorporating NASA GEVS Section 2.8 and vibroacoustic/shock procedures from Section 2.4.2.",
+        "Implemented ISO Class 8 cleanroom protocols for assembly and testing to ensure compliance with MIL-STD-1246C surface cleanliness standards.",
+        "Contributed to data collection for generating mini-catalogs with line-of-sight (Right Ascension/Declination) measurements."
+      ],
+      "startDate": "2025-08-01",
+      "endDate": "Present"
+    },
+    {
+      "name": "Light Intensity Measurement & Validation of Radiative Laws Using Arduino",
+      "summary": "Designed an Arduino-based experimental setup using an LDR sensor to measure light intensity and validate physics laws.",
+      "highlights": [
+        "Validated inverse-square law and Lambert’s cosine law (R² = 0.927).",
+        "Processed experimental data using custom MATLAB fitting models."
+      ],
+      "startDate": "2025-10-01",
+      "endDate": "2025-11-01"
+    },
+    {
+      "name": "Mixture-Ratio Sensitivity of a Hydrogen–Oxygen Rocket Engine Using NASA CEA",
+      "summary": "Analyzed combustion chamber temperature and specific impulse variation for a GH₂/GO₂ rocket engine.",
+      "highlights": [
+        "Used NASA CEA to compare restricted chemistry and full equilibrium combustion models at 68 atm.",
+        "Identified optimal fuel-rich operating conditions (O/F ≈ 2)."
+      ],
+      "startDate": "2025-05-01",
+      "endDate": "2025-06-01"
+    },
+    {
+      "name": "AI-Driven Collision Avoidance for Crowded Orbital Environments",
+      "summary": "Investigated AI-based methods for predicting and preventing satellite collisions in LEO.",
+      "highlights": [
+        "Reviewed conjunction screening, event pruning, and Bayesian RNNs.",
+        "Outlined future directions for hybrid AI–physics modeling."
+      ],
+      "startDate": "2025-01-01",
+      "endDate": "2025-04-01"
+    },
+    {
+      "name": "Space Debris Detection for Orbital Scene Awareness",
+      "summary": "Developed a YOLOv8 object detection model to identify space debris and satellites in orbital imagery.",
+      "highlights": [
+        "Trained on 6.4k images with 42k annotations across diverse orbital scenes.",
+        "Achieved reliable detection of small debris and large spacecraft across varying scales."
+      ],
+      "startDate": "2025-03-01",
+      "endDate": "2025-04-01"
+    },
+    {
+      "name": "Experimental Boundary Layer Analysis Using Hot-Wire Anemometry",
+      "summary": "Characterized a turbulent flat-plate boundary layer using hot-wire anemometry and pitot-static measurements.",
+      "highlights": [
+        "Computed boundary layer thickness, wall shear stress, and friction coefficient.",
+        "Performed FFT analysis to evaluate turbulence intensity and kinetic energy."
+      ],
+      "startDate": "2025-01-01",
+      "endDate": "2025-04-01"
+    },
+    {
+      "name": "Finite Element Structural Analysis Using Simcenter Femap with NASTRAN",
+      "summary": "Applied FEA to classic aerospace structural problems.",
+      "highlights": [
+        "Modeled beam and rod elements with isotropic aluminum material properties.",
+        "Verified model accuracy through percentage error analysis against hand calculations."
+      ],
+      "startDate": "2025-01-01",
+      "endDate": "2025-04-01"
+    },
+    {
+      "name": "Wind Tunnel Aerodynamic Testing of a Space Shuttle Orbiter Scale Model",
+      "summary": "Conducted low-speed wind tunnel testing of a 1:286 scale model.",
+      "highlights": [
+        "Measured lift and drag forces across AoA from −10° to 30° at 20 m/s.",
+        "Identified peak lift coefficient (CL ≈ 1.01) and maximum L/D ≈ 1.88."
+      ],
+      "startDate": "2025-01-01",
+      "endDate": "2025-04-01"
+    },
+    {
+      "name": "Development of a 6DOF Flight Dynamics Model for the Airbus A320",
+      "summary": "Developed a six degrees of freedom flight dynamics model using MATLAB.",
+      "highlights": [
+        "Modeled translational and rotational aircraft motion using rigid-body dynamics.",
+        "Integrated aerodynamic force and moment models to simulate trajectory."
+      ],
+      "startDate": "2024-05-01",
+      "endDate": "2024-08-01"
+    },
+    {
+      "name": "EUREKA Rocket Launch Team (LASERHAWK)",
+      "summary": "Programming Lead for student rocket design and launch team via NSBE.",
+      "highlights": [
+        "Developed Arduino and C++ flight data logging software for a 5-foot rocket.",
+        "Enabled GPS tracking, range estimation, and post-flight data analysis."
+      ],
+      "startDate": "2023-01-01",
+      "endDate": "2023-10-01"
+    }
+  ],
+  "awards": [
+    { "title": "ERAU Presidential Scholar", "date": "2025-01-01", "awarder": "Embry-Riddle Aeronautical University" },
+    { "title": "Fall 2024 Dean’s List", "date": "2025-01-01", "awarder": "Embry-Riddle Aeronautical University" },
+    { "title": "Spring 2025 Honor Roll", "date": "2025-05-01", "awarder": "Embry-Riddle Aeronautical University" },
+    { "title": "Summer 2025 Dean’s List", "date": "2025-08-01", "awarder": "Embry-Riddle Aeronautical University" },
+    { "title": "Fall 2025 Honor Roll", "date": "2025-12-01", "awarder": "Embry-Riddle Aeronautical University" },
+    { "title": "Jeffrey Randall Smith Memorial Scholar", "date": "2022-08-01", "awarder": "Scholarship Committee" },
+    { "title": "City of Coral Springs MLK Scholar", "date": "2024-01-01", "awarder": "City of Coral Springs" },
+    { "title": "Summer 2024 Dean’s List", "date": "2024-08-01", "awarder": "Embry-Riddle Aeronautical University" }
+  ],
+  "volunteer": [
+    {
+      "organization": "School Board of Broward County",
+      "position": "Technology Advisory Committee Member",
+      "url": "",
+      "startDate": "2021-08-01",
+      "endDate": "Present",
+      "summary": "Serve on a district-level advisory committee supporting technology integration, STEM initiatives, and educational innovation.",
+      "highlights": [
+        "Provide student and community perspectives on emerging technologies, cybersecurity awareness, and digital equity in K–12 education."
+      ]
+    },
+    {
+      "organization": "J.P. Taravella High School Special Olympics",
+      "position": "Volunteer",
+      "url": "",
+      "startDate": "2020-01-01",
+      "endDate": "2022-06-01",
+      "summary": "Supported Special Olympics events and student-athlete activities.",
+      "highlights": [
+        "Assisted coaches and staff to ensure inclusive, safe, and engaging athletic experiences.",
+        "Coordinated events and provided on-site assistance."
+      ]
+    },
+    {
+      "organization": "City of Tamarac",
+      "position": "Volunteer",
+      "url": "",
+      "startDate": "2017-08-01",
+      "endDate": "2019-07-01",
+      "summary": "Participated in community service initiatives and city-sponsored volunteer programs.",
+      "highlights": [
+        "Supported local events and civic engagement efforts benefiting residents and public spaces."
+      ]
+    }
+  ],
+  "languages": [
+    { "language": "English", "fluency": "Native/Fluent" },
+    { "language": "Arabic", "fluency": "Fluent" },
+    { "language": "Spanish", "fluency": "Classroom Study" }
+  ]
+}

@@ -1,0 +1,72 @@
+---
+# -----------------------------------------------------------------------------
+# PROJECT TEMPLATE
+# To add a new project to your portfolio:
+# 1. Duplicate this file and name it e.g. "8_my_new_project.md"
+# 2. Change the layout to "page", set title, description, thumbnail image, importance.
+# 3. Add your content in Markdown below the frontmatter.
+# -----------------------------------------------------------------------------
+layout: page
+title: "Project Title Here"
+description: "A short 1-line punchy subtitle or summary of what this project accomplishes"
+img: assets/img/your_thumbnail.png # Thumbnail displayed on the /projects/ card grid
+importance: 8                      # Lower numbers appear first (1, 2, 3...)
+category: Electric Propulsion     # Optional category name (e.g. Electric Propulsion, Space Systems, Robotics)
+# redirect: https://github.com/yourname/repo # Uncomment if you want clicking the card to open an external link directly
+---
+
+## Role & Context
+**Role:** Project Lead / Engineer  
+**Timeline:** Month Year – Month Year  
+**Collaborators / Organization:** Team Name / Company  
+**Key Tools:** CAD, Python, FEA, etc.  
+
+---
+
+## Overview
+Write 1-2 paragraphs giving high-level context on the problem, your objective, and why it matters.
+
+---
+
+## Technical Highlights
+
+### 1. Key Engineering Achievement
+- Detail your methodology, calculations, simulations, or experiments.
+- Highlight metrics, numbers, and concrete results (e.g. weight saved, efficiency gained, error margins).
+
+### 2. Adding Visual Figures
+You can embed figures with responsive sizing and captions like this:
+
+```liquid
+<div class="row justify-content-center">
+  <div class="col-sm-10 mt-3 mt-md-0">
+    {% include figure.liquid 
+      loading="eager" 
+      path="assets/img/your_image.png" 
+      title="Caption Title" 
+      class="img-fluid rounded z-depth-1" 
+    %}
+  </div>
+</div>
+<div class="caption">
+  Figure 1: Describe the schematic, chart, or CAD render here.
+</div>
+```
+
+Or simply use standard markdown:
+`![Caption](assets/img/your_image.png)`
+
+### 3. LaTeX Math Equations
+You can write inline math like $E = mc^2$ or display math blocks:
+
+$$
+\vec{F}_{EM} = \vec{j} \times \vec{B} = (j_r B_z - j_z B_r)\hat{\theta} + (j_\theta B_r - j_r B_\theta)\hat{z}
+$$
+
+### 4. Code Blocks
+```python
+import numpy as np
+
+def calculate_thrust(mass_flow, exhaust_velocity):
+    return mass_flow * exhaust_velocity
+```

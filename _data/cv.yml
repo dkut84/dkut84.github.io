@@ -1,0 +1,219 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Azhari Abbas
+    - name: Email
+      value: azhari.abbas2@gmail.com
+    - name: Phone
+      value: "+1 (954) 882-7461"
+    - name: Languages
+      value: English, Arabic, Spanish (Classsroom Study)
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Master of Science in Aerospace Engineering
+      institution: University of Florida, Gainsville, FL
+      year: Aug 2026 – May 2028
+      description:
+        - Areas of Concentration: Advanced GNCA
+
+    - title: Bachelor of Science in Aerospace Engineering
+      institution: Embry-Riddle Aeronautical University, Daytona Beach, FL
+      year: Aug 2022 – May 2026
+      description:
+        - Areas of Concentration: Astronautics and Spacecraft Design
+        - Minors: Computer Science, Business Administration
+        - Activities and Societies: Kappa Alpha Psi Fraternity Inc., National Society of Black Engineers (NSBE)
+
+- title: Experience
+  type: time_table
+  contents:
+    - title: Product Line Management Associate (Part-time)
+      institution: Mitsubishi Power Americas Inc., Orlando, Florida
+      year: April 2024 – May 2026
+      description:
+        - Analyzed operational data from high-capacity gas turbines to support product life cycle management and strategy development.
+        - Coordinated communication between engineering, sales, and program managers across prioritization and production cycles.
+
+    - title: Test and Evaluation Engineering Intern (Full-time)
+      institution: Northrop Grumman Corporation, Palmdale, California
+      year: June 2025 – August 2025
+      description:
+        - Active U.S. Department of Defense Secret/SAP clearance.
+        - Conducted testing of hydraulic, environmental control, electrical, and fuel systems.
+        - Authored Acceptance Test Procedures to ensure system safety and compliance.
+        - Enhanced augmented reality tools to guide technicians during system testing.
+
+    - title: Mechanical Engineering Intern (Part-time)
+      institution: Docking Robotics LLC, Daytona Beach, Florida
+      year: June 2023 – November 2023
+      description:
+        - Designed and integrated encoder mounting hardware for an autonomous ground vehicle.
+        - Collaborated with vendors to resolve instrumentation and measurement system challenges.
+
+- title: Projects
+  type: time_table
+  contents:
+
+    - title: Light Intensity Measurement & Validation of Radiative Laws Using Arduino
+      institution: Embry-Riddle Aeronautical University
+      year: Oct 2025 – Nov 2025
+      description:
+        - Designed and implemented an Arduino-based experimental setup using an LDR sensor to measure light intensity.
+        - Validated the inverse-square law and Lambert’s cosine law using controlled distance and angular measurements.
+        - Processed experimental data using custom MATLAB fitting models, achieving strong agreement with Lambert’s cosine law (R² = 0.927).
+        - Integrated hardware interfacing, data acquisition, signal processing, and model validation techniques.
+
+    - title: Mixture-Ratio Sensitivity of a Hydrogen–Oxygen Rocket Engine Using NASA CEA
+      institution: Embry-Riddle Aeronautical University
+      year: May 2025 – Jun 2025
+      description:
+        - Analyzed combustion chamber temperature and specific impulse variation with oxidizer-to-fuel ratio for a GH₂/GO₂ rocket engine.
+        - Used NASA CEA to compare restricted chemistry and full equilibrium combustion models at 68 atm chamber pressure.
+        - Identified optimal fuel-rich operating conditions with peak performance near O/F ≈ 2.
+        - Demonstrated the trade-off between temperature rise and exhaust molecular weight in rocket performance.
+
+    - title: AI-Driven Collision Avoidance for Crowded Orbital Environments
+      institution: Embry-Riddle Aeronautical University
+      year: Jan 2025 – Apr 2025
+      description:
+        - Investigated AI-based methods for predicting and preventing satellite collisions in low Earth orbit.
+        - Reviewed conjunction screening, event pruning, uncertainty modeling, and autonomous maneuver planning techniques.
+        - Examined ensemble classifiers, Bayesian RNNs, graph neural networks, and reinforcement learning approaches.
+        - Outlined future directions for on-orbit validation, multi-agent coordination, and hybrid AI–physics modeling.
+
+    - title: Experimental Boundary Layer Analysis Using Hot-Wire Anemometry
+      institution: Embry-Riddle Aeronautical University
+      year: Jan 2025 – Apr 2025
+      description:
+        - Characterized a turbulent flat-plate boundary layer using hot-wire anemometry and pitot-static measurements.
+        - Computed free-stream velocity, boundary layer thickness, wall shear stress, and friction coefficient.
+        - Compared dimensional and non-dimensional velocity profiles with classical laminar and turbulent boundary layer theory.
+        - Performed FFT analysis to evaluate turbulence intensity and turbulent kinetic energy over time.
+
+    - title: Finite Element Structural Analysis Using Simcenter Femap with NASTRAN
+      institution: Embry-Riddle Aeronautical University
+      year: Jan 2025 – Apr 2025
+      description:
+        - Applied finite element analysis to classic aerospace structural problems using Simcenter Femap with NASTRAN.
+        - Modeled beam and rod elements with isotropic aluminum material properties.
+        - Compared numerical displacements, stresses, and reaction forces with analytical hand calculations.
+        - Verified model accuracy through percentage error analysis and load-path interpretation.
+
+    - title: Space Debris Detection for Orbital Scene Awareness
+      institution: Embry-Riddle Aeronautical University
+      year: Mar 2025 – Apr 2025
+      description:
+        - Developed a YOLOv8 object detection model to identify space debris and satellites in orbital imagery.
+        - Trained on 6.4k images with 42k annotations to detect objects across diverse orbital scenes.
+        - Implemented the pipeline in Python using Ultralytics YOLOv8 for localization and classification.
+        - Achieved reliable detection of small debris and large spacecraft across varying scales.
+
+    - title: Wind Tunnel Aerodynamic Testing of a Space Shuttle Orbiter Scale Model
+      institution: Embry-Riddle Aeronautical University
+      year: Jan 2025 – Apr 2025
+      description:
+        - Conducted low-speed wind tunnel testing of a 1:286 scale Space Shuttle Orbiter model.
+        - Measured lift and drag forces across angles of attack from −10° to 30° at 20 m/s freestream velocity.
+        - Identified stall behavior, peak lift coefficient (CL ≈ 1.01), and maximum L/D ≈ 1.88 near 10°.
+        - Compared experimental trends with NASA sub-scale and flight aerodynamic data.
+
+    - title: Development of a 6DOF Flight Dynamics Model for the Airbus A320
+      institution: Independent Project
+      year: May 2024 – Aug 2024
+      description:
+        - Developed a six degrees of freedom flight dynamics model for the Airbus A320 using MATLAB.
+        - Modeled translational and rotational aircraft motion using rigid-body dynamics and kinematics.
+        - Integrated aerodynamic force and moment models to simulate aircraft trajectory over time.
+        - Planned future expansion into a real-time Simulink-based 6DOF simulator with control system integration.
+
+    - title: EUREKA Rocket Launch Team (LASERHAWK)
+      institution: Embry-Riddle Aeronautical University (NSBE)
+      year: Jan 2023 – Oct 2023
+      description:
+        - Served as Programming Lead for a student rocket design and launch team.
+        - Developed Arduino and C++ flight data logging software for a 5-foot high-power rocket.
+        - Enabled GPS tracking, range estimation, and post-flight data analysis.
+        - Supported embedded system testing and integration for competition readiness.
+
+- title: Skills
+  type: nested_list
+  contents:
+    - title: Programming and Flight Software
+      items:
+        - Python, MATLAB, C, C++, CUDA
+        - Arduino, ROS, PX4
+    - title: Simulation and Analysis
+      items:
+        - Simulink, NASTRAN, Ansys Fluent
+        - STK, GMAT, MES, CPLM
+    - title: Computer-Aided Design
+      items:
+        - CATIA, SolidWorks, Inventor
+        - Siemens NX
+
+- title: Certificates
+  type: time_table
+  contents:
+    - title: SOLIDWORKS Professional (CSWP)
+      institution: Dassault Systèmes
+      year: 2019
+
+    - title: Autodesk Professional Certification – Design and Drafting
+      institution: Autodesk
+      year: 2019
+
+    - title: Autodesk Inventor Professional Certification – Mechanical Design
+      institution: Autodesk
+      year: 2022
+
+    - title: Arduino Certification Program
+      institution: Arduino
+      year: 2023
+
+    - title: Northrop Grumman Aeronautic Systems Training for Advanced Refinement (ASTAR)
+      institution: Northrop Grumman Corporation
+      year: 2025
+
+- title: Honors and Awards
+  type: time_table
+  contents:
+    - year: 2024
+      items:
+        - Jeffrey Randall Smith Memorial Scholar
+        - City of Coral Springs MLK Scholar
+        - Summer 2024 Dean’s List
+
+    - year: 2025
+      items:
+        - Fall 2024 Dean’s List
+        - Spring 2025 Honor Roll
+        - Summer 2025 Dean’s List
+        - Fall 2025 Honor Roll
+        - ERAU Presidential Scholar
+
+- title: Volunteering
+  type: time_table
+  contents:
+    - title: Technology Advisory Committee Member
+      institution: School Board of Broward County
+      year: Aug 2021 - May 2026
+      description:
+        - Serve on a district-level advisory committee supporting technology integration, STEM initiatives, and educational innovation.
+        - Provide student and community perspectives on emerging technologies, cybersecurity awareness, and digital equity in K–12 education.
+
+    - title: Volunteer
+      institution: J.P. Taravella High School Special Olympics
+      year: Jan 2020 - Jun 2022
+      description:
+        - Supported Special Olympics events and student-athlete activities through event coordination and on-site assistance.
+        - Assisted coaches and staff to ensure inclusive, safe, and engaging athletic experiences.
+
+    - title: Volunteer
+      institution: City of Tamarac
+      year: Aug 2017 - Jul 2019
+      description:
+        - Participated in community service initiatives and city-sponsored volunteer programs.
+        - Supported local events and civic engagement efforts benefiting residents and public spaces.
