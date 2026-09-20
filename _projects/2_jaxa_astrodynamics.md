@@ -5,6 +5,7 @@ description: "Global heuristic optimisation and Monte Carlo dispersion analysis 
 img: assets/img/jaxa_phaethon_ceres_3d.png
 importance: 2
 category: Astrodynamics
+pdf: assets/pdf/jaxa_astrodynamics_paper.pdf
 ---
 
 ## Overview & Publication

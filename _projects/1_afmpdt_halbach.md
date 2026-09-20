@@ -2,9 +2,10 @@
 layout: page
 title: "Permanent-Magnet Halbach Array for an Argon AF-MPD Thruster"
 description: "Settled Design Configuration for Continuous Operation, with the Magnetic, Thermal and Discharge Analysis Behind It"
-img: assets/img/afmpdt_ga.png
+img: assets/img/fig_02_field_map.png
 importance: 1
 category: Electric Propulsion
+pdf: assets/pdf/TN02_AFMPDT_Final_Report.pdf
 ---
 
 # Technical Note TN-02: Permanent Magnet Architecture for an AF-MPD Thruster
@@ -15,17 +16,29 @@ category: Electric Propulsion
 **Organization:** Theta Systems  
 **Date:** September 2026  
 
-<div class="row justify-content-center my-4">
-  <div class="col-12 text-center">
-    <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" target="_blank" class="btn btn-primary btn-sm z-depth-1 mx-1 mb-2">
-      <i class="fas fa-file-pdf"></i> Download Full Report (PDF)
-    </a>
-    <a href="{{ '/assets/pdf/afmpdt_poster.pdf' | relative_url }}" target="_blank" class="btn btn-outline-primary btn-sm z-depth-1 mx-1 mb-2">
-      <i class="fas fa-image"></i> View Technical Poster (PDF)
-    </a>
-    <a href="#report-viewer" class="btn btn-secondary btn-sm z-depth-1 mx-1 mb-2">
-      <i class="fas fa-book-reader"></i> Jump to PDF Viewer
-    </a>
+<div class="card bg-light border-primary my-4 shadow-sm" style="border-left: 5px solid #0076df !important;">
+  <div class="card-body p-3 p-md-4">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-8">
+        <h4 class="card-title text-primary font-weight-bold mb-1">
+          <i class="fas fa-file-pdf text-danger mr-2"></i>Full Technical Report & Manufacturing Package
+        </h4>
+        <p class="card-text text-muted mb-2 mb-lg-0" style="font-size: 0.95rem;">
+          Complete 32-page publication deliverable (TN-02): Full multiphysics mathematical derivations, 14 simulation verification figures, mass budget, and 10 A3 manufacturing drawings.
+        </p>
+      </div>
+      <div class="col-12 col-lg-4 text-lg-right mt-2 mt-lg-0">
+        <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" target="_blank" class="btn btn-primary font-weight-bold shadow-sm px-3 py-2 mr-1 mb-1">
+          <i class="fas fa-external-link-alt mr-1"></i> Read Report (PDF)
+        </a>
+        <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" download="TN02_AFMPDT_Final_Report.pdf" class="btn btn-outline-primary font-weight-bold px-3 py-2 mr-1 mb-1">
+          <i class="fas fa-download mr-1"></i> Download PDF
+        </a>
+        <a href="#report-viewer" class="btn btn-secondary font-weight-bold px-3 py-2 mb-1">
+          <i class="fas fa-book-open mr-1"></i> Embedded Viewer
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -82,29 +95,42 @@ The design constraints are established accordingly:
 | **Would the thruster actually work?** | Section 5 | **186 mN** predicted thrust at 100 A |
 
 ### 1.4 Baseline Requirements Summary
-- **Field Strength:** Axial flux density at the cathode tip $B_z \ge 0.40	ext{ T}$ (with $0.70	ext{ T}$ goal) at steady-state operating temperature.
-- **Field Uniformity:** Field maintained reasonably uniform over an acceleration channel length of $40	ext{ to }70	ext{ mm}$.
-- **Magnet Temperature:** $100^\circ	ext{C}$ design target against a $180^\circ	ext{C}$ material rating during continuous firing.
-- **Total Assembly Mass:** Maximum limit of $7.50	ext{ kg}$.
+- **Field Strength:** Axial flux density at the cathode tip $B_z \ge 0.40\text{ T}$ (with $0.70\text{ T}$ goal) at steady-state operating temperature.
+- **Field Uniformity:** Field maintained reasonably uniform over an acceleration channel length of $40\text{ to }70\text{ mm}$.
+- **Magnet Temperature:** $100^\circ\text{C}$ design target against a $180^\circ\text{C}$ material rating during continuous firing.
+- **Total Assembly Mass:** Maximum limit of $7.50\text{ kg}$.
 
 ---
 
-## 2. The Settled Mechanical Architecture
+## 2. Settled Multiphysics Solutions & Architecture
 
-The settled build is selected from a parametric sweep of **143 magnetostatic configurations** and **84 coupled thermal cases**. Eighteen builds met all structural and thermal limits; this configuration generates the strongest on-axis field.
+The settled configuration is selected from a rigorous parametric sweep of **143 magnetostatic configurations** and **84 coupled thermal cases**. Eighteen builds met all structural and thermal limits; this configuration generates the strongest on-axis field while maintaining safe thermal margins.
+
+The two cornerstone COMSOL Multiphysics 2D axisymmetric field solutions below prove both core physical principles simultaneously:
 
 <div class="row justify-content-center my-4">
-  <div class="col-sm-10 mt-3 mt-md-0">
+  <div class="col-sm-6 mt-3 mt-md-0">
     {% include figure.liquid 
       loading="eager" 
-      path="assets/img/afmpdt_ga.png" 
-      title="AF-MPDT General Assembly Cutaway View" 
+      path="assets/img/fig_02_field_map.png" 
+      title="COMSOL 2D Axisymmetric Magnetic Flux Density Map" 
       class="img-fluid rounded z-depth-1" 
     %}
+    <div class="caption text-center">
+      Figure 2: COMSOL 2D axisymmetric magnetic flux density map. Demonstrates flux circulation through the 1010 steel return casing and intense bore concentration (0.631 T hot at cathode tip).
+    </div>
   </div>
-</div>
-<div class="caption text-center">
-  Figure 2: Cutaway CAD model illustrating the central 2% thoriated tungsten cathode, OFHC copper anode barrel, radial vacuum gap, Macor ceramic sleeve, NdFeB tile stack, and 1010 low-carbon steel flux return casing.
+  <div class="col-sm-6 mt-3 mt-md-0">
+    {% include figure.liquid 
+      loading="eager" 
+      path="assets/img/fig_06_temperature_field.png" 
+      title="COMSOL 2D Axisymmetric Steady-State Temperature Field" 
+      class="img-fluid rounded z-depth-1" 
+    %}
+    <div class="caption text-center">
+      Figure 3: COMSOL 2D steady-state thermal distribution under 500 W continuous arc load. Direct rear conduction limits magnet temperatures to 72°C (well below 180°C limit).
+    </div>
+  </div>
 </div>
 
 ### 2.1 Geometric Definition
@@ -125,35 +151,21 @@ The assembly is 2D axisymmetric about the central axis. The datum $z = 0$ is the
 #### Axial Build (Front to Rear)
 | Axial Range $z$ (mm) | Component Feature | Primary Function |
 | :--- | :--- | :--- |
-| **$-18	ext{ to }-16$** | Isolation plate (AlN, full dia) | 170 W/(m·K) thermal conduction with >15 kV/mm electrical isolation |
-| **$-16	ext{ to }-10$** | Spreader disc (OFHC Cu, full dia) | Radial heat spreading across full 114 mm footprint |
-| **$-10	ext{ to }0$** | Mounting plate | Copper hand-off boss ($r \le 17$) & Macor shelf ($r \ge 18$) |
-| **$0	ext{ to }50$** | Anode barrel | Plasma arc channel; cathode tip terminates at $z = +50$ mm |
-| **$0	ext{ to }80$** | Magnet stack & casing | 5-ring Halbach cylinder and outer steel return sheath |
-| **$80	ext{ to }86$** | Front retaining ring | 304 stainless steel axial clamp ring |
-
-<div class="row justify-content-center my-4">
-  <div class="col-sm-10 mt-3 mt-md-0">
-    {% include figure.liquid 
-      loading="eager" 
-      path="assets/img/afmpdt_exploded.png" 
-      title="Exploded View of Thruster Sub-assemblies" 
-      class="img-fluid rounded z-depth-1" 
-    %}
-  </div>
-</div>
-<div class="caption text-center">
-  Figure 3: Exploded CAD view showing modular stack assembly: copper anode, ceramic isolation sleeves, segmented magnet tiles, steel housing, and fastening hardware.
-</div>
+| **$-18\text{ to }-16$** | Isolation plate (AlN, full dia) | 170 W/(m·K) thermal conduction with >15 kV/mm electrical isolation |
+| **$-16\text{ to }-10$** | Spreader disc (OFHC Cu, full dia) | Radial heat spreading across full 114 mm footprint |
+| **$-10\text{ to }0$** | Mounting plate | Copper hand-off boss ($r \le 17$) & Macor shelf ($r \ge 18$) |
+| **$0\text{ to }50$** | Anode barrel | Plasma arc channel; cathode tip terminates at $z = +50$ mm |
+| **$0\text{ to }80$** | Magnet stack & casing | 5-ring Halbach cylinder and outer steel return sheath |
+| **$80\text{ to }86$** | Front retaining ring | 304 stainless steel axial clamp ring |
 
 ### 2.2 Magnetisation Schedule & Assembly Criticality
 Magnets are polarized during manufacture and cannot be altered afterward. If the end cap rings are installed in reverse, the on-axis cathode tip field collapses from 0.669 T to 0.072 T (a factor of nine loss), causing immediate performance failure.
 
 | Ring Number | Axial Span $z$ (mm) | Magnetisation Direction | Tile Count |
 | :--- | :--- | :--- | :--- |
-| **Ring 1 (Rear Cap)** | $0	ext{ to }16$ | Radially **OUTWARD** ($+\hat{r}$) | 8 wedge tiles |
-| **Rings 2, 3, 4 (Core)**| $16	ext{ to }64$ | Axially **TOWARD EXHAUST** ($+\hat{z}$) | 24 wedge tiles |
-| **Ring 5 (Front Cap)** | $64	ext{ to }80$ | Radially **INWARD** ($-\hat{r}$) | 8 wedge tiles |
+| **Ring 1 (Rear Cap)** | $0\text{ to }16$ | Radially **OUTWARD** ($+\hat{r}$) | 8 wedge tiles |
+| **Rings 2, 3, 4 (Core)**| $16\text{ to }64$ | Axially **TOWARD EXHAUST** ($+\hat{z}$) | 24 wedge tiles |
+| **Ring 5 (Front Cap)** | $64\text{ to }80$ | Radially **INWARD** ($-\hat{r}$) | 8 wedge tiles |
 
 ### 2.3 Mass Budget & Bill of Materials
 The complete thruster mass is **7.17 kg**, comfortably within the **7.50 kg envelope**.
@@ -202,26 +214,12 @@ Magnetic flux originates from the axial core rings, circulates through the low-c
   Figure 4: Centreline magnetic field profile ($B_z$). At the cathode tip ($z = 50$ mm), the field reaches 0.669 T cold and 0.631 T at solved operating temperature (72°C), exceeding the 0.40 T floor across the entire acceleration channel.
 </div>
 
-<div class="row justify-content-center my-4">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid 
-      loading="eager" 
-      path="assets/img/fig_02_field_map.png" 
-      title="2D Axisymmetric Magnetic Flux Path" 
-      class="img-fluid rounded z-depth-1" 
-    %}
-  </div>
-</div>
-<div class="caption text-center">
-  Figure 5: 2D axisymmetric flux map showing magnetic return circulation through the outer 1010 steel casing and bore concentration induced by the Halbach end caps.
-</div>
-
 | Magnetic Field Parameter | Cold Solution (20°C) | Solved Operating Temp (72°C) |
 | :--- | :--- | :--- |
-| **Cathode Tip Field ($z = 50	ext{ mm}$)** | **0.669 T** | **0.631 T** |
-| **Channel Mean ($z = 20	ext{ to }50	ext{ mm}$)** | 0.657 T | 0.619 T |
+| **Cathode Tip Field ($z = 50\text{ mm}$)** | **0.669 T** | **0.631 T** |
+| **Channel Mean ($z = 20\text{ to }50\text{ mm}$)** | 0.657 T | 0.619 T |
 | **Channel Minimum Field** | 0.534 T | 0.503 T |
-| **Peak Field in Channel ($z = 37	ext{ mm}$)** | 0.677 T | 0.638 T |
+| **Peak Field in Channel ($z = 37\text{ mm}$)** | 0.677 T | 0.638 T |
 | **Field Ripple Across Acceleration Gap** | 21.9% | 21.9% |
 | **Length Maintained Within 10% of Peak** | 31.5 mm | 31.5 mm |
 | **Casing Peak Flux Density** | 1.58 T (Linear Region, below 2.1 T knee) | 1.58 T |
@@ -240,14 +238,14 @@ To verify numerical fidelity, the magnetostatic architecture was cross-checked u
   </div>
 </div>
 <div class="caption text-center">
-  Figure 6: Cross-code validation comparing FEMM 4.2 and COMSOL 6.4. Agreement is better than 0.5% throughout the entire discharge channel.
+  Figure 5: Cross-code validation comparing FEMM 4.2 and COMSOL 6.4. Agreement is better than 0.5% throughout the entire discharge channel.
 </div>
 
 | Verification Check | Methodology | Result |
 | :--- | :--- | :--- |
 | **Dual Code Verification** | Independent FEMM and COMSOL models on identical geometry | 0.359 T vs 0.361 T (<0.5% delta) |
 | **Polarity Sensitivity** | Stack solved with reversed end-cap polarization | Factor of 5.0 field collapse |
-| **Remanence Scaling** | Cold solve scaled by $lpha_{Br} = -0.11\%/	ext{K}$ vs uniform temperature sweep (60–180°C) | 0.03% error |
+| **Remanence Scaling** | Cold solve scaled by $\alpha_{Br} = -0.11\%/\text{K}$ vs uniform temperature sweep (60–180°C) | 0.03% error |
 | **Coupled Multiphysics Validation** | Temperature-dependent solve across 13 coupled test cases | Conservative by 0.1% to 1.4% |
 | **Iron Casing Saturation** | Mesh refinement from 1.5 mm down to 0.25 mm element sizing | Converged and stable to 4 figures |
 
@@ -265,7 +263,7 @@ Because permanent magnets operate within their own demagnetizing fields, local r
   </div>
 </div>
 <div class="caption text-center">
-  Figure 7: Worst-case reverse field as a percentage of coercivity. At the 72°C operating point, the margin is at least 23%, confirming zero demagnetised volume.
+  Figure 6: Worst-case reverse field as a percentage of coercivity. At the 72°C operating point, the margin is at least 23%, confirming zero demagnetised volume.
 </div>
 
 ---
@@ -286,29 +284,15 @@ Under continuous firing, passive surface radiation from the outer casing is inca
   </div>
 </div>
 <div class="caption text-center">
-  Figure 8: Steady-state temperature response of four rear interface concepts at 500 W continuous load (logarithmic scale). Uncooled Concept C overheats beyond material limits; Concept D provides optimal magnet margin.
+  Figure 7: Steady-state temperature response of four rear interface concepts at 500 W continuous load (logarithmic scale). Uncooled Concept C overheats beyond material limits; Concept D provides optimal magnet margin.
 </div>
 
-- **Concept A (Direct Anode Hand-Off):** Conduction out of the anode annulus only ($1.1 	imes 10^{-3}	ext{ m}^2$). Anode reaches 252°C, magnets reach 66°C.
+- **Concept A (Direct Anode Hand-Off):** Conduction out of the anode annulus only ($1.1 \times 10^{-3}\text{ m}^2$). Anode reaches 252°C, magnets reach 66°C.
 - **Concept B (Stepped Annulus):** Intermediate spreading area. Anode reaches 210°C, magnets reach 65°C.
 - **Concept C (Uncooled Baseline):** Radiation only. Anode reaches **1,779°C** (exceeding copper melting point) and magnets reach **400°C** (destroying magnetization).
-- **Concept D (Settled Full-Diameter Spreader):** Full 114 mm footprint ($1.0 	imes 10^{-2}	ext{ m}^2$). Anode drops to **185°C** in test geometry, magnets remain at **64°C**.
+- **Concept D (Settled Full-Diameter Spreader):** Full 114 mm footprint ($1.0 \times 10^{-2}\text{ m}^2$). Anode drops to **185°C** in test geometry, magnets remain at **64°C**.
 
 ### 4.2 Equilibrium Multiphysics Thermal Results
-
-<div class="row justify-content-center my-4">
-  <div class="col-sm-10 mt-3 mt-md-0">
-    {% include figure.liquid 
-      loading="eager" 
-      path="assets/img/fig_06_temperature_field.png" 
-      title="2D Axisymmetric Temperature Distribution" 
-      class="img-fluid rounded z-depth-1" 
-    %}
-  </div>
-</div>
-<div class="caption text-center">
-  Figure 9: Steady temperature distribution at 500 W continuous load for Concept D compared to an uncooled baseline. Heat conducts axially rearward, keeping all magnet tiles near 60–72°C.
-</div>
 
 <div class="row justify-content-center my-4">
   <div class="col-sm-10 mt-3 mt-md-0">
@@ -321,7 +305,7 @@ Under continuous firing, passive surface radiation from the outer casing is inca
   </div>
 </div>
 <div class="caption text-center">
-  Figure 10: Complete heat balance budget. 488 W (97.6%) of the arc power exits through the rear cold plate; only 9.5 W enters the magnets, and 9.6 W radiates externally.
+  Figure 8: Complete heat balance budget. 488 W (97.6%) of the arc power exits through the rear cold plate; only 9.5 W enters the magnets, and 9.6 W radiates externally.
 </div>
 
 | Subsystem Component | Peak Operating Temp (°C) | Minimum Temp (°C) | Design Limit / Margin |
@@ -350,7 +334,7 @@ Every millimeter of radial thickness pushes the permanent magnet bore outward, c
   </div>
 </div>
 <div class="caption text-center">
-  Figure 11: Trade study. Left: Centreline field decay against magnet bore radius (~0.031 T lost per mm). Right: Magnet peak temperature versus vacuum break width.
+  Figure 9: Trade study. Left: Centreline field decay against magnet bore radius (~0.031 T lost per mm). Right: Magnet peak temperature versus vacuum break width.
 </div>
 
 | Anode Wall Thickness | Peak Anode Temp (°C) | Peak Magnet Temp (°C) | Cold Tip Field (T) |
@@ -376,10 +360,10 @@ The thruster assembly interfaces with the spacecraft bus at $z = -18$ mm across 
   </div>
 </div>
 <div class="caption text-center">
-  Figure 12: Contact conductance sensitivity. Sinks above $520	ext{ W/(m}^2\cdot	ext{K)}$ satisfy the 100°C magnet target; $1,000	ext{ W/(m}^2\cdot	ext{K)}$ is standard for a bolted joint with thermal interface material.
+  Figure 10: Contact conductance sensitivity. Sinks above $520\text{ W/(m}^2\cdot\text{K)}$ satisfy the 100°C magnet target; $1,000\text{ W/(m}^2\cdot\text{K)}$ is standard for a bolted joint with thermal interface material.
 </div>
 
-**Requirement to Spacecraft Provider:** Specify **$\ge 1,000	ext{ W/(m}^2\cdot	ext{K)}$** conductance at the rear face with a cold plate operating temperature $\le 50^\circ	ext{C}$.
+**Requirement to Spacecraft Provider:** Specify **$\ge 1,000\text{ W/(m}^2\cdot\text{K)}$** conductance at the rear face with a cold plate operating temperature $\le 50^\circ\text{C}$.
 
 ### 4.5 Thermal Power Envelope
 To test robustness against off-nominal arc voltages, power dissipation was swept up to 1,500 W.
@@ -395,7 +379,7 @@ To test robustness against off-nominal arc voltages, power dissipation was swept
   </div>
 </div>
 <div class="caption text-center">
-  Figure 13: Operational power envelope. The 2 mm anode build accommodates up to 700 W continuous arc dissipation before the anode approaches 400°C, and 760 W before magnets reach 100°C.
+  Figure 11: Operational power envelope. The 2 mm anode build accommodates up to 700 W continuous arc dissipation before the anode approaches 400°C, and 760 W before magnets reach 100°C.
 </div>
 
 ---
@@ -416,7 +400,7 @@ Downstream of the cathode tip ($z > 50$ mm), applied field lines diverge to form
   </div>
 </div>
 <div class="caption text-center">
-  Figure 14: Diverging magnetic nozzle field lines. On-axis null points occur at $z = 8$ mm (submerged safely inside the solid tungsten cathode rod) and $z = 70$ mm (20 mm clear of all hardware in the plume).
+  Figure 12: Diverging magnetic nozzle field lines. On-axis null points occur at $z = 8$ mm (submerged safely inside the solid tungsten cathode rod) and $z = 70$ mm (20 mm clear of all hardware in the plume).
 </div>
 
 ### 5.2 Current Conduction & Swirl Acceleration
@@ -433,7 +417,7 @@ Current paths were solved by modeling the ionized argon column as a conducting c
   </div>
 </div>
 <div class="caption text-center">
-  Figure 15: Conduction current trajectories and azimuthal swirl force density ($j_r 	imes B_z$). The azimuthal body force spins the propellant rapidly over the downstream two-thirds of the channel.
+  Figure 13: Conduction current trajectories and azimuthal swirl force density ($j_r \times B_z$). The azimuthal body force spins the propellant rapidly over the downstream two-thirds of the channel.
 </div>
 
 <div class="row justify-content-center my-4">
@@ -447,12 +431,12 @@ Current paths were solved by modeling the ionized argon column as a conducting c
   </div>
 </div>
 <div class="caption text-center">
-  Figure 16: Channel electron Hall parameter ($\omega_{ce}	au_e$), with a median value of 235 across the acceleration zone.
+  Figure 14: Channel electron Hall parameter ($\omega_{ce}\tau_e$), with a median value of 235 across the acceleration zone.
 </div>
 
 **Key Findings:**
 1. **Negligible Induced Discharge Field:** At 100 A, the magnetic field created by the plasma discharge itself is **0.33% of the permanent magnet field**, validating uncoupled magnetostatic solutions.
-2. **Applied-Field Dominance:** The self-field Maecker thrust term is only 2.2 mN. The thruster is **applied-field dominated by two orders of magnitude** ($F_{applied} / F_{self} pprox 85$).
+2. **Applied-Field Dominance:** The self-field Maecker thrust term is only 2.2 mN. The thruster is **applied-field dominated by two orders of magnitude** ($F_{applied} / F_{self} \approx 85$).
 
 ### 5.3 Predicted Thrust Performance
 Thrust was predicted by fitting applied-field scaling laws to **667 published experimental argon thruster test runs** from the AFMPDT international database:
@@ -475,7 +459,7 @@ $$T = C \cdot I_d \cdot B_{tip} \cdot r_a$$
   </div>
 </div>
 <div class="caption text-center">
-  Figure 17: Feasible design space of 136 magnetostatic builds. The settled build (circled) provides the highest on-axis field (0.631 T) achievable within the 7.5 kg mass envelope.
+  Figure 15: Feasible design space of 136 magnetostatic builds. The settled build (circled) provides the highest on-axis field (0.631 T) achievable within the 7.5 kg mass envelope.
 </div>
 
 Reaching the 0.70 T goal would require expanding the magnet OD from 94 mm to 104 mm, raising the assembly mass to 8.54 kg. Sizing at 7.17 kg represents the optimal engineering optimum.
@@ -497,55 +481,77 @@ End cap thickness controls the balance between peak field strength and axial fie
 
 ---
 
-## 7. Complete CAD Drawing Package
+## 7. Manufacturing Drawings Package
 
 The manufacturing drawings package includes 10 fully dimensioned A3 sheets with GD&T and tolerances:
 
 | Drawing Sheet | Title & Description | Deliverable |
 | :--- | :--- | :--- |
-| **AFMPDT3-001** | General Arrangement, Envelope & Bill of Materials | [View Sheet](assets/img/AFMPDT3-001_GA.png){:target="_blank"} |
-| **AFMPDT3-002** | OFHC Copper Anode Barrel | [View Sheet](assets/img/AFMPDT3-002_Anode.png){:target="_blank"} |
-| **AFMPDT3-003** | NdFeB Magnet Tiles & Polarisation Schedule | [View Sheet](assets/img/AFMPDT3-003_MagnetTiles.png){:target="_blank"} |
-| **AFMPDT3-004** | Low-Carbon Steel Flux Return Casing | [View Sheet](assets/img/AFMPDT3-004_IronCasing.png){:target="_blank"} |
-| **AFMPDT3-005** | Macor Standoff Sleeve & SS Radiation Shield | [View Sheet](assets/img/AFMPDT3-005_SleeveAndShield.png){:target="_blank"} |
-| **AFMPDT3-006** | Mounting Baseplate (Copper Boss & Ceramic Shelf) | [View Sheet](assets/img/AFMPDT3-006_MountingPlate.png){:target="_blank"} |
-| **AFMPDT3-007** | OFHC Copper Thermal Spreader Plate | [View Sheet](assets/img/AFMPDT3-007_Spreader.png){:target="_blank"} |
-| **AFMPDT3-008** | Sintered Aluminium Nitride Dielectric Isolation Plate| [View Sheet](assets/img/AFMPDT3-008_IsolationPlate.png){:target="_blank"} |
-| **AFMPDT3-009** | 304 Stainless Steel Front Retaining Ring | [View Sheet](assets/img/AFMPDT3-009_FrontRing.png){:target="_blank"} |
-| **AFMPDT3-010** | Thoriated Tungsten Cathode & Ceramic Bushings | [View Sheet](assets/img/AFMPDT3-010_Cathode.png){:target="_blank"} |
+| **AFMPDT3-001** | General Arrangement, Envelope & Bill of Materials | [View Sheet]({{ '/assets/img/AFMPDT3-001_GA.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-002** | OFHC Copper Anode Barrel | [View Sheet]({{ '/assets/img/AFMPDT3-002_Anode.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-003** | NdFeB Magnet Tiles & Polarisation Schedule | [View Sheet]({{ '/assets/img/AFMPDT3-003_MagnetTiles.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-004** | Low-Carbon Steel Flux Return Casing | [View Sheet]({{ '/assets/img/AFMPDT3-004_IronCasing.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-005** | Macor Standoff Sleeve & SS Radiation Shield | [View Sheet]({{ '/assets/img/AFMPDT3-005_SleeveAndShield.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-006** | Mounting Baseplate (Copper Boss & Ceramic Shelf) | [View Sheet]({{ '/assets/img/AFMPDT3-006_MountingPlate.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-007** | OFHC Copper Thermal Spreader Plate | [View Sheet]({{ '/assets/img/AFMPDT3-007_Spreader.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-008** | Sintered Aluminium Nitride Dielectric Isolation Plate| [View Sheet]({{ '/assets/img/AFMPDT3-008_IsolationPlate.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-009** | 304 Stainless Steel Front Retaining Ring | [View Sheet]({{ '/assets/img/AFMPDT3-009_FrontRing.png' | relative_url }}){:target="_blank"} |
+| **AFMPDT3-010** | Thoriated Tungsten Cathode & Ceramic Bushings | [View Sheet]({{ '/assets/img/AFMPDT3-010_Cathode.png' | relative_url }}){:target="_blank"} |
 
 ---
 
-## 8. Full Technical Report Deliverable & Document Viewer {#report-viewer}
+## 8. Limitations & Engineering Verification
 
-The complete publication report and manufacturing drawings are embedded below:
+1. **Multiphysics Coupling Margin:** The magnet remanence was scaled uniformly using solved peak magnet temperature. Across 13 coupled test cases, this methodology is proven conservative by 0.1% to 1.4% compared to local point-by-point temperature mapping.
+2. **Conductivity Tensor Representation:** The discharge model implements a continuum scalar conductivity at a median Hall parameter of 235. Current streamline paths represent spatial topology rather than point-to-point tensor transport.
+3. **Cathode Heat Integration:** Cathode thermionic radiative emission is neglected in the bulk anode conduction network; active cathode heat dissipation will slightly bias the anode root temperature.
+4. **Propellant Injection Plenum:** Six 0.9 mm injection orifices on a 16 mm pitch circle maintain plenum pressure between 7.6 and 25.4 Torr (9–30 mg/s argon flow), operating stably on the high-pressure branch of the Paschen curve.
+5. **Demagnetisation Threshold:** Coercivity margins remain >23% up to 130°C. Magnet temperatures must not be quoted above 130°C without full nonlinear hysteresis re-evaluation.
 
-<div class="row justify-content-center mb-3">
-  <div class="col-12 text-center">
-    <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" target="_blank" class="btn btn-primary btn-sm z-depth-1 mx-1">
-      <i class="fas fa-file-pdf"></i> Open Full Report in New Tab
+---
+
+## 9. Full Technical Report Deliverable & Document Viewer {#report-viewer}
+
+The complete 32-page publication deliverable (TN-02 Rev 3 settled design) is directly accessible and embedded below.
+
+<div class="card bg-light border-primary mb-4 p-3 shadow-sm text-center">
+  <div class="d-flex flex-wrap justify-content-center gap-2">
+    <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" target="_blank" class="btn btn-primary font-weight-bold mx-1 my-1 px-4 py-2">
+      <i class="fas fa-external-link-alt mr-2"></i> Open Full Report in New Tab (PDF)
     </a>
-    <a href="{{ '/assets/pdf/afmpdt_poster.pdf' | relative_url }}" target="_blank" class="btn btn-outline-primary btn-sm z-depth-1 mx-1">
-      <i class="fas fa-image"></i> View Technical Poster
+    <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" download="TN02_AFMPDT_Final_Report.pdf" class="btn btn-outline-primary font-weight-bold mx-1 my-1 px-4 py-2">
+      <i class="fas fa-download mr-2"></i> Download Full Report (PDF, 32 Pages)
+    </a>
+    <a href="{{ '/assets/pdf/afmpdt_poster.pdf' | relative_url }}" target="_blank" class="btn btn-outline-secondary font-weight-bold mx-1 my-1 px-3 py-2">
+      <i class="fas fa-image mr-2"></i> View Technical Poster
     </a>
   </div>
 </div>
 
 <div class="row justify-content-center my-3">
   <div class="col-12">
-    <object 
-      data="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" 
-      type="application/pdf" 
-      width="100%" 
-      height="900px" 
-      style="border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    <!-- Multi-tier PDF Viewer: Google Docs Viewer for 100% universal device/mobile compatibility + Native PDF embed -->
+    <div style="position: relative; width: 100%; height: 950px; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
       <iframe 
-        src="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" 
+        src="https://docs.google.com/viewer?url=https%3A%2F%2Fdkut84.github.io%2Fassets%2Fpdf%2FTN02_AFMPDT_Final_Report.pdf&embedded=true" 
         width="100%" 
-        height="900px" 
-        style="border: none;">
-        <p>Your browser does not support inline PDFs. <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}">Download the full PDF report directly</a>.</p>
+        height="100%" 
+        style="border: none;"
+        title="TN-02 Technical Report Document Viewer">
+        <object 
+          data="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" 
+          type="application/pdf" 
+          width="100%" 
+          height="100%">
+          <iframe 
+            src="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" 
+            width="100%" 
+            height="100%" 
+            style="border: none;">
+            <p>Your browser does not support inline PDFs. <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}">Download the full PDF report directly</a>.</p>
+          </iframe>
+        </object>
       </iframe>
-    </object>
+    </div>
   </div>
 </div>
