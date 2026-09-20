@@ -23,7 +23,7 @@ ninja.data = [{
               window.location.href = "/books/the_godfather/";
             },},{id: "projects-permanent-magnet-halbach-array-for-an-argon-af-mpd-thruster",
           title: 'Permanent-Magnet Halbach Array for an Argon AF-MPD Thruster',
-          description: "High-field permanent-magnet circuit and continuous axial thermal architecture for a 1–5 kW argon plasma thruster",
+          description: "Settled Design Configuration for Continuous Operation, with the Magnetic, Thermal and Discharge Analysis Behind It",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_afmpdt_halbach/";
             },},{id: "projects-interplanetary-trajectory-optimisation-using-particle-swarm-optimisation",
@@ -31,11 +31,6 @@ ninja.data = [{
           description: "Global heuristic optimisation and Monte Carlo dispersion analysis for Earth-to-asteroid intercept trajectories, presented at JAXA",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_jaxa_astrodynamics/";
-            },},{id: "projects-project-title-here",
-          title: 'Project Title Here',
-          description: "A short 1-line punchy subtitle or summary of what this project accomplishes",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/template_project.md/";
             },},{
       id: 'light-theme',
       title: 'Change theme to light',
