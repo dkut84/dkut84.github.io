@@ -127,11 +127,19 @@ This research developed a global heuristic optimisation pipeline applying **Part
 
 <div class="row justify-content-center">
   <div class="col-12">
-    <iframe 
-      src="{{ '/assets/pdf/jaxa_astrodynamics_paper.pdf' | relative_url }}" 
+    <object 
+      data="{{ '/assets/pdf/jaxa_astrodynamics_paper.pdf' | relative_url }}" 
+      type="application/pdf" 
       width="100%" 
       height="850px" 
       style="border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
-    </iframe>
+      <iframe 
+        src="{{ '/assets/pdf/jaxa_astrodynamics_paper.pdf' | relative_url }}" 
+        width="100%" 
+        height="850px" 
+        style="border: none;">
+        <p>Your browser does not support inline PDFs. <a href="{{ '/assets/pdf/jaxa_astrodynamics_paper.pdf' | relative_url }}">Download the conference paper directly</a>.</p>
+      </iframe>
+    </object>
   </div>
 </div>

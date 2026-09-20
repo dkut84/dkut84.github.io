@@ -6,8 +6,6 @@ subtitle: Aeronautics & Astronautics / Spacecraft Engineering | University of So
 
 profile:
   align: right
-  image: pfp3.jpg # Place your profile picture in assets/img/ (e.g. pfp.jpg) and update this filename
-  image_circular: true # crops the image to make it circular
   more_info: |
     <p>
       <a href="https://www.linkedin.com/in/dionkuteesa/" target="_blank" rel="noopener">
