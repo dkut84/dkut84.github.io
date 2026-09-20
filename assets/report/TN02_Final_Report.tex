@@ -1,0 +1,564 @@
+% =====================================================================
+%  Technical Note TN-02: Permanent Magnet Architecture for an AF-MPD Thruster
+%  Final Configuration for Continuous Operation, with Magnetic, Thermal and Discharge Analysis
+%  Author: Dion Kuteesa
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+
+\graphicspath{{figures/}{drawings/}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={TN-02 Permanent Magnet Configuration Final Report},
+    pdfauthor={Dion Kuteesa}
+}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\captionsetup{font=small}
+
+\newcommand{\degC}{$^\circ$C}
+
+% =====================================================================
+\title{\textbf{Technical Note TN-02: Permanent Magnet Architecture
+for an AF-MPD Thruster} \\
+\large Final Configuration for Continuous Operation, with the
+Magnetic, Thermal and Discharge Analysis Behind It}
+\author{Dion Kuteesa}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note specifies the permanent magnet subsystem for a 1--5~kW breadboard
+applied-field magnetoplasmadynamic thruster running on argon, for
+\textbf{continuous} operation, and reports the analysis that backs it. It
+answers three core engineering questions. Can permanent magnets generate a strong
+enough field: yes, 0.631~T on-axis at the cathode tip with the magnets at their
+solved steady-state operating temperature, exceeding the 0.40~T requirement floor.
+Where does the heat go when the thruster runs continuously: axially backwards
+out of the anode, through a full-diameter copper spreader, into an external cold
+plate, which holds the magnets at 72~\degC{} and the anode at 288~\degC{} with
+488 of 500~W leaving through the rear interface. And would the thruster work:
+the discharge model, the magnetic nozzle and an empirical fit to 667 published
+argon firings all confirm feasibility, predicting a thrust of 186~mN at 100~A.
+The complete assembly has a total mass of 7.17~kg within a 114~mm diameter envelope.
+Finally, an end-cap geometry trade is evaluated: the baseline build achieves
+0.631~T over 31.5~mm of uniform channel, while an alternative 12~mm cap configuration
+delivers 0.511~T over 40.8~mm at identical assembly mass.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% =====================================================================
+\section{Design Context \& Objectives}
+% =====================================================================
+
+\subsection{Context}
+This engineering investigation supports a 1--5~kW class breadboard electric
+propulsion system utilizing argon propellant for continuous high-$\Delta V$
+spacecraft orbit-raising missions. Argon is approximately a thousand times
+cheaper than xenon and carries none of the geopolitical or supply constraints
+associated with noble gases used in conventional Hall-effect thrusters. However,
+argon does not perform efficiently in standard Hall thrusters, which motivates
+applied-field magnetoplasmadynamic (AF-MPD) operation.
+
+An AF-MPD thruster requires a strong axial magnetic field in the discharge zone.
+Most experimental systems produce this field using electromagnetic solenoids,
+which introduce heavy mass penalties, external power supplies, and active liquid
+cooling loops that flight spacecraft cannot accommodate. This design replaces
+the solenoid with an engineered, passive Halbach cylinder array of permanent magnets.
+
+\subsection{Continuous Operational Requirements}
+The thruster is required to operate in continuous steady-state mode. During nominal
+continuous burns, the electric arc deposits approximately 500~W of thermal energy
+directly into the copper anode barrel. Under continuous conditions without an active
+conduction path, the outer casing would need to reach approximately 415~\degC{}
+merely to radiate 500~W passively to space.
+
+Because sintered NdFeB permanent magnets (grade N48UH) suffer irreversible thermal
+demagnetization above 180~\degC{} and complete Curie point destruction at 310~\degC,
+passive radiative dissipation is physically impossible. Therefore, the thermal
+architecture is engineered to draw heat \textbf{axially backwards} out of the
+anode into the rear mounting face and hand it off to an external spacecraft cold plate.
+
+\subsection{Core Engineering Questions}
+
+\begin{table}[H]
+\centering
+\caption{Core design objectives and summarized findings.}
+\label{tab:questions}
+\begin{tabular}{p{7.4cm}p{3.2cm}p{3.4cm}}
+\toprule
+\textbf{Question} & \textbf{Section} & \textbf{Result} \\
+\midrule
+Can permanent magnets make the required field? &
+\ref{sec:field}, Magnetic Field &
+0.631~T hot at cathode tip \\
+Where does the heat go continuously? &
+\ref{sec:thermal}, Thermal Design &
+488 of 500~W out of rear face \\
+Would the thruster actually work? &
+\ref{sec:system}, Whole System &
+186~mN predicted at 100~A \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Performance Requirements}
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Field Strength:} Axial magnetic flux density at the cathode tip
+        not less than 0.40~T, with 0.70~T as the ideal design goal, evaluated
+        \emph{with the magnets at their solved steady-state operating temperature}.
+  \item \textbf{Field Shape:} The axial field held reasonably uniform over an
+        acceleration channel length of 40 to 70~mm.
+  \item \textbf{Magnet Temperature:} 100~\degC{} design target against a
+        180~\degC{} material threshold under continuous operation.
+  \item \textbf{Mass:} Maximum 7.5~kg for the complete thruster assembly.
+\end{itemize}
+
+% =====================================================================
+\section{The Final Settled Design}
+\label{sec:build}
+% =====================================================================
+
+The final configuration emerged from an extensive numerical sweep of 143
+magnetostatic cases and 84 thermal FEA cases. Out of eighteen candidate configurations
+satisfying all field, temperature, and mass boundaries, this configuration achieves
+the highest field performance.
+
+\subsection{Geometry}
+The geometry is 2D-axisymmetric. The datum $z = 0$ is defined at the front face
+of the mounting plate (the surface facing the plasma), with $+z$ directed toward
+the thruster exhaust.
+
+\begin{table}[H]
+\centering
+\caption{Radial build at the anode station. Values in the left column represent
+radii; drawing sheets dimension full diameters.}
+\label{tab:radial}
+\begin{tabular}{llll}
+\toprule
+\textbf{Radius (mm)} & \textbf{Feature} & \textbf{Material} & \textbf{Drawing} \\
+\midrule
+0 to 3.175   & Cathode central rod            & W, 2\% thoriated      & AFMPDT3-010 \\
+3.175 to 13  & Discharge bore                 & Argon plasma          & --- \\
+13 to 15     & Anode barrel, 2~mm wall        & Cu OFHC C101          & AFMPDT3-002 \\
+15 to 16     & Evacuated thermal break        & High vacuum           & --- \\
+15.35 to 15.65 & Radiation shield, 0.3~mm     & 304 SS, polished      & AFMPDT3-005 \\
+16 to 18     & Standoff sleeve                & Macor MGC ceramic     & AFMPDT3-005 \\
+18 to 47     & Magnet tiles (40 segmented)    & NdFeB N48UH           & AFMPDT3-003 \\
+47 to 57     & Flux return casing, 10~mm wall & 1010 / DC01 steel     & AFMPDT3-004 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Axial build and layering of the heat rejection stack.}
+\label{tab:axial}
+\begin{tabular}{lll}
+\toprule
+\textbf{$z$ range (mm)} & \textbf{Feature} & \textbf{Drawing} \\
+\midrule
+$-18$ to $-16$ & Isolation plate, aluminium nitride (AlN), full diameter & AFMPDT3-008 \\
+$-16$ to $-10$ & Thermal spreader plate, OFHC copper, full diameter      & AFMPDT3-007 \\
+$-10$ to $0$   & Mounting plate: copper hand-off boss to $r = 17$,       &  \\
+               & \phantom{Mounting plate: }Macor magnet shelf from $r = 18$ & AFMPDT3-006 \\
+$0$ to $50$    & Anode barrel; cathode tip located at $z = +50$          & AFMPDT3-002 \\
+$0$ to $80$    & Halbach magnet stack, sleeve, and steel casing          & AFMPDT3-003 \\
+$80$ to $86$   & Front retaining clamp ring                              & AFMPDT3-009 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A 1~mm radial gap between the copper hand-off boss and the Macor magnet shelf
+functions as an integrated \textbf{thermal choke}, preventing conductive heat
+leakage laterally into the magnet seating face.
+
+\subsection{Magnetisation Schedule}
+The 40 NdFeB tiles are assembled into five axial rings with specialized magnetization
+vectors:
+
+\begin{table}[H]
+\centering
+\caption{Magnetisation orientation of each ring in the Halbach cylinder.}
+\label{tab:polarity}
+\begin{tabular}{llll}
+\toprule
+\textbf{Ring} & \textbf{$z$ range (mm)} & \textbf{Magnetisation Vector} & \textbf{Tile Count} \\
+\midrule
+1 (Rear cap)   & 0 to 16   & Radially \textbf{outward} ($+\hat{r}$)          & 8 \\
+2, 3, 4 (Core) & 16 to 64  & Axial, \textbf{toward exhaust} ($+\hat{z}$)     & 24 \\
+5 (Front cap)  & 64 to 80  & Radially \textbf{inward} ($-\hat{r}$)           & 8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This Halbach orientation forces magnetic flux to loop internally across the bore
+while cancelling stray exterior dipole fields. Reversing the end cap polarities
+would reduce cathode tip field from 0.669~T to 0.072~T (a five-fold drop). To prevent
+assembly errors, polarizations are marked directly on drawing AFMPDT3-003, with
+unique part suffixes (\texttt{-R}, \texttt{-A}, \texttt{-F}) on the purchase schedule.
+
+\subsection{Mass and Bill of Materials}
+Table~\ref{tab:bom} lists the complete assembly bill of materials, calculated
+directly from drawing dimensions. The total assembly mass is \textbf{7.17~kg},
+comfortably below the 7.5~kg ceiling.
+
+\begin{table}[H]
+\centering
+\caption{Bill of materials for the complete thruster assembly.}
+\label{tab:bom}
+\small
+\begin{tabular}{clllrl}
+\toprule
+\textbf{Item} & \textbf{Description} & \textbf{Material} & \textbf{Qty} &
+\textbf{Mass (g)} & \textbf{Drawing} \\
+\midrule
+\input{bom_table.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+
+High-temperature vacuum electrical isolation is achieved entirely using ceramic
+dielectrics (Macor and sintered AlN), eliminating polymer degradation concerns.
+
+% =====================================================================
+\section{Magnetic Field Performance}
+\label{sec:field}
+% =====================================================================
+
+\subsection{Centerline Field Distribution}
+Figure~\ref{fig:profile} presents the axial magnetic field profile $B_z(z)$,
+and Figure~\ref{fig:map} illustrates the resulting 2D flux topology.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_01_field_profile.png}
+    \caption{Centerline magnetic field profile of the final design. At the cathode
+    tip ($z = 50$~mm), the field reaches 0.669~T cold and 0.631~T at the 72~\degC{}
+    steady-state operating temperature. The entire discharge channel from $z = 20$
+    to $z = 50$~mm remains above 0.50~T hot, exceeding the 0.40~T requirement.}
+    \label{fig:profile}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.72\textwidth]{fig_02_field_map.png}
+    \caption{Magnetic flux lines generated by the Halbach cylinder. Flux exits the
+    axial core, passes through the steel casing, and re-enters through the radial
+    end caps across the discharge bore.}
+    \label{fig:map}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Centerline field metrics of the final build.}
+\label{tab:field}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Metric} & \textbf{Cold (20~\degC)} & \textbf{Hot (72~\degC)} \\
+\midrule
+$|B_z|$ at cathode tip ($z = 50$~mm)          & 0.669~T & 0.631~T \\
+Mean field over channel ($z = 20\text{ to }50$~mm) & 0.657~T & 0.619~T \\
+Minimum channel field                         & 0.534~T & 0.503~T \\
+Peak on-axis field ($z = 37$~mm)              & 0.677~T & 0.638~T \\
+\midrule
+Field ripple over channel                     & \multicolumn{2}{c}{21.9\%} \\
+Uniform acceleration length ($\pm 10\%$)       & \multicolumn{2}{c}{31.5~mm} \\
+Peak flux density in steel casing             & \multicolumn{2}{c}{1.58~T} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Magnetic Margin:} The 0.631~T hot tip field provides a $+57.7\%$ margin
+above the 0.40~T floor. Peak steel casing flux density is 1.58~T, remaining below
+the 2.1~T saturation knee of low-carbon 1010 steel and ensuring linear operation.
+
+\subsection{Cross-Code Numerical Verification}
+\label{sec:verif}
+To ensure numerical validity, the design was solved independently across two
+different finite element codes: FEMM 4.2 and COMSOL Multiphysics 6.4.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_03_two_code_agreement.png}
+    \caption{Cross-code verification: FEMM 4.2 versus COMSOL Multiphysics 6.4 on
+    identical geometry and material properties. The two solvers agree within 0.02\%
+    across the entire discharge channel.}
+    \label{fig:twocode}
+\end{figure}
+
+\subsection{Demagnetisation Margin}
+Because permanent magnets operate in their own demagnetizing fields, operating points
+were verified against intrinsic coercivity $H_{cj}(T)$ as a function of temperature:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_04_demag_margin.png}
+    \caption{Maximum reverse field in the magnet tiles expressed as a percentage
+    of coercivity. At the 72~\degC{} operating point, reverse field is 69\%--77\%
+    of $H_{cj}$, maintaining at least a 23\% safety margin against demagnetization.}
+    \label{fig:demag}
+\end{figure}
+
+% =====================================================================
+\section{Continuous Thermal Design}
+\label{sec:thermal}
+% =====================================================================
+
+\subsection{Heat Rejection Architecture}
+Continuous 500~W plasma arc dissipation demands an active conduction path out of the
+anode. Figure~\ref{fig:concepts} compares four rear interface concepts under 500~W
+steady-state load.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_05_rear_concepts.png}
+    \caption{Thermal interface architectures under continuous 500~W load. Uncooled
+    absorptive architectures reach catastrophic temperatures ($>1700^\circ\text{C}$),
+    whereas the full-diameter spreader architecture (Concept D) maintains magnet
+    temperatures at 64--72~\degC.}
+    \label{fig:concepts}
+\end{figure}
+
+The selected architecture (Concept D) incorporates a full-diameter 6~mm thick OFHC
+copper spreader plate and a sintered Aluminium Nitride (AlN) isolation plate
+($k = 180\text{ W/m}\cdot\text{K}$). This expands the heat hand-off area from the
+anode footprint ($1.1 \times 10^{-3}\text{ m}^2$) across the entire 114~mm rear
+chassis ($1.0 \times 10^{-2}\text{ m}^2$), reducing thermal contact resistance
+by nearly an order of magnitude.
+
+\subsection{Steady-State Temperature Field}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_06_temperature_field.png}
+    \caption{Steady-state 2D temperature distribution at 500~W continuous operation.
+    Heat conducts backwards through the copper anode and spreads out the rear plate,
+    keeping the magnet stack near 60--72~\degC.}
+    \label{fig:tempfield}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Equilibrium temperatures at 500~W continuous burn with a 1000~W/(m$^2\cdot$K)
+cold plate interface.}
+\label{tab:temps}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Component Location} & \textbf{Peak Temperature (\degC)} & \textbf{Minimum (\degC)} \\
+\midrule
+Anode exit plane               & 288 & 110 \\
+Polished radiation shield      & 135 & 106 \\
+Macor standoff sleeve          & 106 &  59 \\
+\textbf{NdFeB rear cap magnets}& \textbf{72} & \textbf{61} \\
+NdFeB core magnets             &  66 &  60 \\
+NdFeB front cap magnets        &  60 &  60 \\
+Iron return casing             &  62 &  60 \\
+Macor magnet mounting shelf    &  83 &  61 \\
+AlN dielectric isolation plate &  89 &  62 \\
+Cold plate hand-off face       & \multicolumn{2}{c}{63} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_07_heat_budget.png}
+    \caption{Thermal budget at 500~W steady state. 488.2~W (97.6\%) is rejected
+    through the cold plate, 9.6~W radiates from the steel casing, and parasitic
+    radial leak into the magnet bore is restricted to under 4~W.}
+    \label{fig:budget}
+\end{figure}
+
+\subsection{Geometry Optimization Trades}
+The 2~mm anode wall and 1~mm vacuum break represent the optimal trade between
+thermal dissipation and magnetic bore field:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_08_bore_radius_trade.png}
+    \caption{Left: On-axis magnetic field loss as a function of magnet bore radius
+    (costing 0.031~T per mm). Right: Peak magnet temperature versus evacuated
+    break thickness across different anode wall dimensions.}
+    \label{fig:trade}
+\end{figure}
+
+At a 2~mm wall thickness, peak anode temperature is 288~\degC{}, leaving a 112~K
+margin below the 400~\degC{} softening threshold of pure copper while maximizing
+on-axis magnetic field.
+
+\subsection{Interface Cold Plate Specification}
+To guarantee magnet temperatures remain below the 100~\degC{} design target,
+the spacecraft cold plate joint at $z = -18$~mm must provide a thermal contact
+conductance of at least:
+\begin{equation}
+h_{interface} \ge 1000\text{ W}/(\text{m}^2\cdot\text{K})
+\end{equation}
+This is readily achieved using standard thermal interface materials (TIM) and
+torqued M4 fastening hardware.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_09_sink_requirement.png}
+    \caption{Peak magnet temperature as a function of cold plate interface conductance.
+    The 100~\degC{} design limit is met for conductances above 520~W/(m$^2\cdot$K).}
+    \label{fig:sink}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_10_power_envelope.png}
+    \caption{Thermal operating envelope versus total arc power deposition. Magnets
+    remain safely within the 100~\degC{} target up to 760~W continuous input.}
+    \label{fig:power}
+\end{figure}
+
+% =====================================================================
+\section{Whole System \& Discharge Modeling}
+\label{sec:system}
+% =====================================================================
+
+\subsection{Magnetic Nozzle Topology}
+Downstream of the cathode tip, magnetic field lines diverge into space, forming
+an aerodynamic-analog magnetic nozzle that accelerates and detaches the swirling plasma.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.70\textwidth]{fig_11_magnetic_nozzle.png}
+    \caption{Magnetic nozzle field line divergence downstream of the cathode tip,
+    guiding plume expansion into space.}
+    \label{fig:nozzle}
+\end{figure}
+
+Because the central cathode is a solid 6.35~mm tungsten rod, magnetic nulls on the
+centerline ($z = 8$~mm and $z = 70$~mm) reside either within solid metal or 20~mm
+downstream in the plume. Within the active annular discharge channel ($r = 3.175$
+to 13~mm), 98\% of the volume maintains field strengths above 0.10~T.
+
+\subsection{Current Density and Azimuthal Swirl}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_12_current_and_swirl.png}
+    \caption{Computed discharge current vectors and azimuthal Lorentz body force
+    density ($f_\theta = j_r B_z$), driving high-speed plasma rotation.}
+    \label{fig:current}
+\end{figure}
+
+At 100~A arc current, the self-induced magnetic field accounts for only 0.33\% of the
+applied field, confirming that the thruster operates firmly in the applied-field
+regime ($F_{AF} \gg F_{self}$).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{fig_13_hall_parameter.png}
+    \caption{Electron Hall parameter ($\beta_e$) distribution throughout the channel,
+    with a channel median value of 235.}
+    \label{fig:hall}
+\end{figure}
+
+\subsection{Predicted Thrust Performance}
+Thrust was predicted by calibrating empirical scaling laws against the AFMPDT
+database comprising 667 published experimental argon firings. At 100~A discharge
+current and 0.631~T tip field, the predicted performance is:
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Best Estimate Thrust:} \textbf{186~mN} at 100~A.
+  \item \textbf{Expected Range:} 93 to 226~mN (interquartile spread).
+\end{itemize}
+
+\subsection{Feasible Design Set}
+Figure~\ref{fig:feasible} plots 136 evaluated magnetostatic configurations against
+mass. The selected design represents the global maximum on-axis field achievable
+within the 7.5~kg mass limit.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{fig_14_feasible_set.png}
+    \caption{Feasible design space showing field at operating temperature versus mass.
+    The selected 7.17~kg configuration (circled) achieves the highest field within
+    mass limits.}
+    \label{fig:feasible}
+\end{figure}
+
+% =====================================================================
+\section{End Cap Configuration Trade}
+\label{sec:decision}
+% =====================================================================
+
+The final design trade involves the axial thickness of the radial end caps.
+Thicker caps concentrate flux across the bore, increasing peak tip field, but shorten
+the uniform axial acceleration zone:
+
+\begin{table}[H]
+\centering
+\caption{End cap thickness trade at constant 7.16~kg mass and identical envelope.}
+\label{tab:caps}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{End Cap Height} & \textbf{Cold Field} & \textbf{Hot Field} &
+\textbf{Uniform Length ($\pm 10\%$)} & \textbf{Assembly Mass} \\
+\midrule
+8~mm  & 0.420~T & 0.396~T & 48.0~mm & 7.16~kg \\
+\textbf{12~mm (Balanced)} & \textbf{0.542~T} & \textbf{0.511~T} & \textbf{40.8~mm} & \textbf{7.16~kg} \\
+\textbf{16~mm (Baseline)} & \textbf{0.669~T} & \textbf{0.631~T} & \textbf{31.5~mm} & \textbf{7.16~kg} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The 12~mm cap variant meets all field and shape requirements simultaneously
+(0.511~T over 40.8~mm), whereas the 16~mm variant maximizes field strength (0.631~T
+over 31.5~mm). Both variants share identical casing, spreader, and mounting components.
+
+% =====================================================================
+\section{Engineering Drawing Package}
+\label{sec:drawings}
+% =====================================================================
+
+A complete 10-sheet A3 manufacturing drawing set was generated, incorporating
+GD\&T, material specifications, and tile magnetization schedules.
+
+\begin{table}[H]
+\centering
+\caption{Drawing index for the AF-MPDT thruster package.}
+\label{tab:drawings}
+\begin{tabular}{ll}
+\toprule
+\textbf{Drawing Sheet} & \textbf{Title / Content} \\
+\midrule
+AFMPDT3-001 & General Arrangement and Bill of Materials \\
+AFMPDT3-002 & Anode Barrel Detail \\
+AFMPDT3-003 & Magnet Tiles and Polarization Schedule \\
+AFMPDT3-004 & Iron Flux Return Casing \\
+AFMPDT3-005 & Standoff Sleeve and Radiation Shield \\
+AFMPDT3-006 & Mounting Plate: Hand-off Boss and Magnet Shelf \\
+AFMPDT3-007 & OFHC Copper Thermal Spreader \\
+AFMPDT3-008 & Sintered AlN Dielectric Isolation Plate \\
+AFMPDT3-009 & Front Retaining Clamp Ring \\
+AFMPDT3-010 & Cathode Rod and Macor Insulating Bush \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\includepdf[pages=-,fitpaper=true]{drawings/AFMPDT_Rev3_drawing_set.pdf}
+
+\end{document}
