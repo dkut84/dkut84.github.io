@@ -112,6 +112,26 @@ This research developed a global heuristic optimisation pipeline applying **Part
 
 ---
 
-## Conference Paper Link
-- Official JAXA Repository: [https://jaxa.repo.nii.ac.jp/records/2002502](https://jaxa.repo.nii.ac.jp/records/2002502){:target="_blank" rel="noopener"}
-- Full Document: [Download Conference Paper PDF](/assets/pdf/jaxa_astrodynamics_paper.pdf){:target="_blank"}
+## Conference Paper Deliverable
+
+<div class="row justify-content-center mb-3">
+  <div class="col-12 text-center">
+    <a href="{{ '/assets/pdf/jaxa_astrodynamics_paper.pdf' | relative_url }}" target="_blank" class="btn btn-primary btn-sm z-depth-1">
+      <i class="fas fa-file-pdf"></i> Open Conference Paper in New Tab
+    </a>
+    <a href="https://jaxa.repo.nii.ac.jp/records/2002502" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm z-depth-1">
+      <i class="fas fa-external-link-alt"></i> JAXA Repository Record
+    </a>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-12">
+    <iframe 
+      src="{{ '/assets/pdf/jaxa_astrodynamics_paper.pdf' | relative_url }}" 
+      width="100%" 
+      height="850px" 
+      style="border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+</div>

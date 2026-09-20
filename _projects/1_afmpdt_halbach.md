@@ -11,7 +11,9 @@ category: Electric Propulsion
 **Author:** Dion Kuteesa  
 **Role:** Research Intern (Electric Propulsion)  
 **Organization:** Theta Systems  
-**Full Deliverable:** [Download Technical Poster (PDF)]({{ '/assets/pdf/afmpdt_poster.pdf' | relative_url }}){:target="_blank" class="btn btn-sm z-depth-0" style="background-color: #0076df; color: white;"}  
+**Deliverables:** 
+- [Download Full Technical Report (PDF)]({{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}){:target="_blank" class="btn btn-sm z-depth-0" style="background-color: #0076df; color: white;"}
+- [View Technical Poster (PDF)]({{ '/assets/pdf/afmpdt_poster.pdf' | relative_url }}){:target="_blank" class="btn btn-sm z-depth-0" style="background-color: #2b8a3e; color: white;"}  
 **Key Tools:** COMSOL Multiphysics, Python-automated FEMM, SolidWorks, GD&T, Analytical Magnetostatics  
 
 ---
@@ -158,3 +160,31 @@ Using the self-consistent magnetic field solution, a plasma acceleration and mag
 | **Axial Rejection Efficiency** | **$97.6\%$** ($488\text{ W}$ via cold plate) | $<4\text{ W}$ parasitic radial leak |
 | **Fastener Preload** | ISO 4762 M4 torqued to $1.5\text{ N}\cdot\text{m}$ | Eliminates tensile fracture on Macor ceramic |
 | **Manufacturing Drawings** | 10-Sheet A3 complete drawing set | Fully dimensioned with GD&T and BOM |
+
+---
+
+## 7. Full Technical Report & Drawings Package
+
+The complete publication report with all 14 analysis figures, finite element validation curves, bill of materials, and the full 10-sheet A3 manufacturing drawing set is embedded below:
+
+<div class="row justify-content-center mb-3">
+  <div class="col-12 text-center">
+    <a href="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" target="_blank" class="btn btn-primary btn-sm z-depth-1">
+      <i class="fas fa-file-pdf"></i> Open Full Report in New Tab
+    </a>
+    <a href="{{ '/assets/pdf/afmpdt_poster.pdf' | relative_url }}" target="_blank" class="btn btn-outline-primary btn-sm z-depth-1">
+      <i class="fas fa-image"></i> Open Technical Poster (PDF)
+    </a>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-12">
+    <iframe 
+      src="{{ '/assets/pdf/TN02_AFMPDT_Final_Report.pdf' | relative_url }}" 
+      width="100%" 
+      height="850px" 
+      style="border: 1px solid #cbd5e1; border-radius: 6px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+    </iframe>
+  </div>
+</div>
