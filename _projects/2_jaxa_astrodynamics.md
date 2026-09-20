@@ -11,9 +11,7 @@ pdf: assets/pdf/jaxa_astrodynamics_paper.pdf
 # Interplanetary Trajectory Optimisation using Particle Swarm Optimisation
 ### Global Heuristic Optimisation and Monte Carlo Dispersion Analysis for Earth-to-Asteroid Intercept Trajectories
 
-**Author:** Dion Kuteesa  
-**Conference:** 35th JAXA Astrodynamics Workshop (Institute of Space and Astronautical Science / JAXA)  
-**Official Paper Record:** [jaxa.repo.nii.ac.jp/records/2002502](https://jaxa.repo.nii.ac.jp/records/2002502){:target="_blank" rel="noopener"}  
+**Presented at:** 35th JAXA Astrodynamics Workshop (ISAS / JAXA) &nbsp;|&nbsp; **Paper Record:** [jaxa.repo.nii.ac.jp/records/2002502](https://jaxa.repo.nii.ac.jp/records/2002502){:target="_blank" rel="noopener"}  
 **Core Methodology:** Particle Swarm Optimisation (PSO), SciPy, Two-Body Numerical Propagation, Monte Carlo Dispersion  
 
 <div class="row justify-content-center my-3">
@@ -35,16 +33,19 @@ pdf: assets/pdf/jaxa_astrodynamics_paper.pdf
 
 ---
 
-## Executive Summary & Problem Context
+## Summary
 
-Trajectory design to small Solar System bodies presents steep computational hurdles. Targets such as **3200 Phaethon** (the high-eccentricity target of JAXA’s DESTINY+ mission, $e = 0.89$, inclination $i = 22.3^\circ$) and dwarf planet **1 Ceres** require navigating non-linear gravitational dynamics under strict $\Delta V$ propellant budgets. Conventional gradient-based solvers frequently stall in local minima, while brute-force grid searches across launch windows and time-of-flight become prohibitively slow.
+Planning fuel-efficient transfer orbits to small Solar System bodies presents difficult computational challenges. Target asteroids such as **3200 Phaethon** (the high-eccentricity target of JAXA’s DESTINY+ mission, with eccentricity $e = 0.89$ and orbital inclination $i = 22.3^\circ$) and dwarf planet **1 Ceres** require navigating non-linear gravitational dynamics under strict spacecraft propellant ($\Delta V$) limits. Standard gradient-based solvers easily get trapped in local minima, while brute-force grid searches across launch windows and flight durations are computationally slow.
 
-This research developed a global heuristic optimization pipeline applying **Particle Swarm Optimisation (PSO)** in Python/SciPy to compute fuel-optimal transfer trajectories from Earth to high-eccentricity and multi-asteroid rendezvous targets:
+This research developed an automated trajectory optimisation pipeline in Python using **Particle Swarm Optimisation (PSO)**. The algorithm simulates a swarm of candidate trajectories ("particles") that explore the parameter space together, sharing information to converge on the most fuel-efficient departure velocity and flight time. The solver pairs numerical orbital propagation with an analytical Kepler solver capable of handling high orbital eccentricities with sub-second numerical convergence.
 
-- **Continuous PSO Engine:** Candidate trajectories are modeled as particle vectors of departure velocity increments $(\Delta v_x, \Delta v_y, \Delta v_z)$ and time-of-flight $(\Delta t)$, guided by adaptive inertia weight decay ($w: 0.9 \to 0.4$) and cognitive/social acceleration terms.
-- **Orbital Propagation & Kepler Solver:** Implemented analytical orbital element conversion routines and a robust Newton-Raphson solver for Kepler's Equation ($M = E - e \sin E$) capable of sub-second convergence ($<10^{-8}$ tolerance) at high eccentricities ($e = 0.89$).
-- **Multi-Target Architecture:** Evaluated consecutive arrival/departure velocity vectors and phasing maneuvers for multi-target flybys (Earth $\to$ Phaethon $\to$ Ceres).
-- **Monte Carlo Robustness Testing:** Conducted a 500-run Monte Carlo dispersion analysis with $\pm 3\sigma$ thrust execution errors and pointing misalignments to establish required margins for trajectory correction maneuvers (TCM).
+### Key Results & Findings
+
+- **Direct Asteroid Intercept:** Identified a direct Earth-to-Phaethon transfer taking **212.7 days** (a sub-year direct flight).
+- **Fast Swarm Convergence:** The PSO solver consistently converged on global optimal trajectories within **40 to 60 iterations** (using 30–50 particles), removing the need for manual initial guesses.
+- **Multi-Target Transfers:** Successfully mapped viable sequential multi-target flybys (Earth $\to$ 3200 Phaethon $\to$ 1 Ceres), evaluating consecutive arrival and departure velocity vectors and required orbital phasing.
+- **Mission Robustness & Error Analysis:** Conducted a 500-run Monte Carlo dispersion analysis introducing realistic rocket thruster execution errors ($\pm 3\sigma$) and pointing misalignments. An uncorrected ballistic flight achieved only a **3.4% intercept success rate**, establishing the critical sizing margins and tracking cadence required for mid-course trajectory correction manoeuvres (TCM).
+- **Conference Review & Archival:** The work was presented at the **35th JAXA Astrodynamics Workshop** and is permanently archived in the official ISAS/JAXA research repository.
 
 ---
 
@@ -84,18 +85,6 @@ This research developed a global heuristic optimization pipeline applying **Part
     <div class="caption text-center">Figure 3: Global best objective score convergence across swarm generations.</div>
   </div>
 </div>
-
----
-
-## Key Results & Findings
-
-| Metric / Parameter | Performance / Result | Impact / Significance |
-| :--- | :--- | :--- |
-| **Direct Transfer Time to Phaethon** | **212.7 days** | Sub-year direct intercept to high-eccentricity target ($e = 0.89$) |
-| **PSO Swarm Convergence** | **40–60 iterations** (30–50 particles) | Sub-minute global solution without requiring manual initial guesses |
-| **Multi-Asteroid Transfer** | **Earth $\to$ Phaethon $\to$ Ceres** | Verified multi-target capability and flyby phasing maneuvers |
-| **Uncorrected Ballistic Intercept** | **3.4% success rate** (500 runs) | Quantifies required $\Delta V$ sizing margins for mid-course TCM burns |
-| **Conference Review & Publication** | **35th JAXA Astrodynamics Workshop** | Oral presentation and formal archival record in JAXA repository |
 
 ---
 

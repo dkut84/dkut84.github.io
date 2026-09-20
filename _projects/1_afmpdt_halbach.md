@@ -8,14 +8,11 @@ category: Electric Propulsion
 pdf: assets/pdf/TN02_AFMPDT_Final_Report.pdf
 ---
 
-# Technical Note TN-02: Permanent Magnet Architecture for an AF-MPD Thruster
+# Permanent-Magnet Halbach Array for an Argon AF-MPD Thruster
 ### Settled Design Configuration for Continuous Operation, with the Magnetic, Thermal and Discharge Analysis Behind It
 
-**Author:** Dion Kuteesa  
-**Role:** Research Intern (Electric Propulsion)  
-**Organization:** Theta Systems  
-**Date:** September 2026  
-**Deliverables:** Technical Note TN-02 (32-Page Final Report) & 10-Sheet A3 Manufacturing Drawing Set  
+**Organisation:** Theta Systems &nbsp;|&nbsp; **Role:** Electric Propulsion Research Intern &nbsp;|&nbsp; **Date:** September 2026  
+**Deliverables:** Technical Note TN-02 (32-page Final Report) & 10-sheet A3 Manufacturing Drawing Set  
 
 <div class="row justify-content-center my-3">
   <div class="col-12 text-center">
@@ -36,20 +33,28 @@ pdf: assets/pdf/TN02_AFMPDT_Final_Report.pdf
 
 ---
 
-## Executive Summary & Context
+## Summary
 
-Applied-Field Magnetoplasmadynamic Thrusters (AF-MPDT) offer high thrust density and specific impulse ($I_{sp} \sim 2,000\text{–}5,000\text{ s}$) using low-cost argon propellant. However, conventional AF-MPD designs rely on heavy, power-hungry electromagnetic solenoids requiring dedicated high-current power supplies and active liquid cooling loops that small spacecraft cannot support.
+Applied-Field Magnetoplasmadynamic Thrusters (AF-MPDT) offer high thrust density and high specific impulse using low-cost argon propellant. They generate thrust by striking an electric arc between a central cathode and an outer cylindrical anode, ionising argon gas into plasma. A strong applied axial magnetic field interacts with the radial discharge current, generating Lorentz forces that spin and accelerate the propellant out of the thruster nozzle.
 
-This development program specifies a passive **permanent-magnet Halbach array** for a 1–5 kW breadboard argon AF-MPD thruster designed for **continuous** orbit-raising operation. Through a coupled multiphysics sweep of **143 magnetostatic configurations** and **84 thermal cases**, the design settles all structural, magnetic, and thermal requirements:
+Using argon provides a major cost advantage over xenon, but argon requires a strong magnetic field to ionise and accelerate efficiently. In traditional designs, this field is produced by heavy electromagnetic coils (solenoids). These solenoids demand dedicated high-current power supplies, draw hundreds of watts of electrical power, and require active liquid cooling systems that small spacecraft cannot support.
 
-1. **Applied Field Generation:** Generates **0.631 T** axial field at the cathode tip at steady-state operating temperature, exceeding the **0.40 T floor requirement** by **+57.7%**.
-2. **Continuous Heat Rejection:** 488 W of the 500 W plasma arc dissipation (97.6%) is conducted axially rearward through a full-diameter copper spreader and AlN dielectric isolation plate into an external spacecraft cold plate, holding magnet tiles at **72°C** (well below their 180°C limit).
-3. **Mass & Envelope Compliance:** Complete assembly mass is **7.17 kg** within a 114 mm outside diameter envelope, safely under the 7.50 kg limit.
-4. **Predicted Thrust Scaling:** Discharge current streamline modeling and an empirical fit across **667 published experimental argon thruster firings** predict **186 mN of thrust at 100 A** discharge current.
+This project replaces the heavy coils with a passive **permanent-magnet Halbach array** for a 1–5 kW breadboard thruster designed for **continuous firing** during satellite orbit-raising missions. The assembly uses high-grade neodymium magnets (NdFeB N48UH) arranged in an 8-segment, 5-ring Halbach cylinder inside a low-carbon steel casing that guides magnetic flux directly through the plasma channel.
+
+### Key Results & Engineering Achievements
+
+Through a coupled multiphysics study spanning **143 magnetostatic configurations** and **84 thermal cases**, the design successfully settled all mechanical, magnetic, and thermal requirements:
+
+- **Strong Applied Magnetic Field:** The Halbach array delivers **0.631 T** on-axis at the cathode tip at steady-state operating temperature, comfortably exceeding the **0.40 T** baseline requirement by **+57.7%**.
+- **Passive Rearward Heat Rejection:** To prevent the permanent magnets from overheating under continuous firing, a 500 W plasma arc heat load is drawn axially rearwards through an OFHC copper anode and an aluminium nitride (AlN) dielectric barrier into an external spacecraft cold plate. **488 W of the 500 W (97.6%)** is rejected through the rear interface, holding magnet tiles at **72°C** (well within their 180°C limit) and the anode at 288°C.
+- **Strict Mass Compliance:** The complete thruster assembly weighs **7.17 kg** within a 114 mm diameter envelope, meeting the 7.50 kg mass limit.
+- **Predicted Thrust Performance:** Current streamline modelling and an empirical fit calibrated against **667 published experimental argon thruster firings** predict **186 mN of thrust** at 100 A discharge current.
+- **Demagnetisation Protection:** Magnetic analysis confirmed a coercivity safety margin of at least **23%** throughout all magnet tiles, preventing irreversible loss of magnetisation up to 130°C.
+- **Complete Manufacturing Package:** Produced a complete set of **10 fully dimensioned A3 manufacturing drawings** with geometric dimensioning and tolerancing (GD&T) for every component.
 
 ---
 
-## Multiphysics Field Solutions & Technical Poster
+## Simulation Field Plots & Technical Poster
 
 Below are the two cornerstone COMSOL Multiphysics 2D axisymmetric field solutions establishing the magnetic field concentration and steady-state thermal equilibrium, alongside the technical showcase poster:
 
@@ -73,7 +78,7 @@ Below are the two cornerstone COMSOL Multiphysics 2D axisymmetric field solution
       class="img-fluid rounded z-depth-1" 
     %}
     <div class="caption text-center">
-      Figure 2: COMSOL 2D steady-state temperature field under 500 W continuous arc load. Rear axial conduction maintains magnet tiles at 72°C (well below the 180°C demagnetization rating).
+      Figure 2: COMSOL 2D steady-state temperature field under 500 W continuous arc load. Rear axial conduction maintains magnet tiles at 72°C (well below the 180°C demagnetisation rating).
     </div>
   </div>
 </div>
@@ -91,21 +96,6 @@ Below are the two cornerstone COMSOL Multiphysics 2D axisymmetric field solution
     </div>
   </div>
 </div>
-
----
-
-## Key Performance Metrics & Settled Specifications
-
-| Subsystem / Metric | Settled Design Value | Design Requirement / Limit | Margin / Status |
-| :--- | :--- | :--- | :--- |
-| **Cathode Tip Field ($B_z$)** | **0.631 T** (at 72°C operating temp) | $\ge 0.40\text{ T}$ | **+57.7% margin** |
-| **Peak Magnet Temperature** | **72°C** (Rear Cap) / 66°C (Core) | $< 100^\circ\text{C}$ target / $180^\circ\text{C}$ limit | **+108 K safety margin** |
-| **Peak Anode Temperature** | **288°C** (Exit Plane) | $< 400^\circ\text{C}$ (softening point) | **+112 K margin** |
-| **Continuous Heat Rejection** | **488 W of 500 W (97.6%)** via rear cold plate | Continuous orbit-raising dissipation | Verified in FEA |
-| **Total Assembly Mass** | **7.17 kg** | $\le 7.50\text{ kg}$ envelope | **Compliant** |
-| **Predicted Thrust at 100 A** | **186 mN** (interquartile: 93–226 mN) | Breadboard 1–5 kW class | Calibrated to 667 firings |
-| **Demagnetisation Margin** | **$\ge 23\%$** across all magnet volume | No irreversible demagnetisation | Verified to 130°C |
-| **Drawing Set Deliverables** | **10 A3 manufacturing sheets** (AFMPDT3-001 to 010) | Complete GD&T CAD package | Included in full report |
 
 ---
 
