@@ -27,4 +27,4 @@ Hello! My name is **Dion Kuteesa**. I am an Aeronautics and Astronautics / Space
 
 My background spans research in electric propulsion design—including permanent-magnet Halbach arrays for Applied-Field Magnetoplasmadynamic Thrusters (AF-MPDT) at Theta Systems, Direct Simulation Monte Carlo (DSMC) modeling for Titan atmosphere-breathing electric propulsion, electret lenses for gridded ion thrusters, and interplanetary trajectory optimization presented at JAXA.
 
-Explore my work, CAD models, and simulation results on the [projects](/projects/) page. Feel free to connect via [LinkedIn](https://www.linkedin.com/in/dionkuteesa/) or email!
+Explore my work, CAD models, and simulation results on the [projects]({{ '/projects/' | relative_url }}) page. Feel free to connect via [LinkedIn](https://www.linkedin.com/in/dionkuteesa/) or email!
